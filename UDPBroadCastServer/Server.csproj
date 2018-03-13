@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{402B15E7-92B3-4AA3-B603-3DEE88CFD26C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>UDPBroadCastReceiver</RootNamespace>
-    <AssemblyName>UDPBroadCastReceiver</AssemblyName>
+    <RootNamespace>UDPBroadCastServer</RootNamespace>
+    <AssemblyName>UDPBroadCastServer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -62,6 +62,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ServerForm.resx">
       <DependentUpon>ServerForm.cs</DependentUpon>
@@ -77,7 +78,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="screencaster16.ico" />
+    <Content Include="screencaster32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UDPCommand\GlobalValues.csproj">
+      <Project>{13059492-e9fd-46f4-9817-5c3e1e0979ca}</Project>
+      <Name>GlobalValues</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

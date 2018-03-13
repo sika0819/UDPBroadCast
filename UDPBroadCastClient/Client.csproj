@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4A3DA3F4-A556-4D14-A840-E22221B3259F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>UDPBroadCast</RootNamespace>
-    <AssemblyName>UDPBroadCast</AssemblyName>
+    <RootNamespace>UDPBroadCastClient</RootNamespace>
+    <AssemblyName>UDPBroadCastClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,7 +53,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UDPReceiver.cs" />
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -65,6 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -77,7 +77,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="screenclient.ico" />
+    <Content Include="screenclient32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UDPCommand\GlobalValues.csproj">
+      <Project>{13059492-e9fd-46f4-9817-5c3e1e0979ca}</Project>
+      <Name>GlobalValues</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UDPBroadCast
+namespace UDPBroadCastClient
 {
     static class Program
     {
@@ -14,6 +15,8 @@ namespace UDPBroadCast
         [STAThread]
         static void Main()
         {
+            if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1)
+                Application.Exit();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ClientForm());
