@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -6,25 +6,12 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+
 namespace UDPBroadCastClient
 {
     public partial class ClientForm : Form
     {
-        public string Message
-        {
-            get
-            {
-                return msg;
-            }
-            set
-            {
-                if (msg != value && msg != "")
-                {
-                    msg = value;
-                }
-            }
-        }
-        private string msg;
+
         private UdpClient udpClient;
         private Thread UdpThread;
         Process p;
@@ -79,14 +66,14 @@ namespace UDPBroadCastClient
         public void OnReceiveMsg(string message)
         {
             switch (message) {
-                case GlobalValues.UDPCommand.FORM_CLOSE:
+                case GlobalSetting.UDPCommand.FORM_CLOSE:
                     Application.Exit();
                     return;
-                case GlobalValues.UDPCommand.FORM_HIDE:
+                case GlobalSetting.UDPCommand.FORM_HIDE:
                     Hide();
                     return;
-                case GlobalValues.UDPCommand.OPEN_VRCLASSROOM:
-                    OpenExe(GlobalValues.ExeName.VRCLASSROOM);
+                case GlobalSetting.UDPCommand.OPEN_VRCLASSROOM:
+                    OpenExe(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\" +GlobalSetting.ExeName.VRCLASSROOM);
                     return;
                 default:
                     break;
@@ -140,8 +127,7 @@ namespace UDPBroadCastClient
             }
         }
         
-        public void OpenExe(string exeName) {
-            string dir= Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory).Replace(@"\\", @"\") + @"\"+exeName;
+        public void OpenExe(string dir) {
             Console.WriteLine(dir);
             
             if (p == null)

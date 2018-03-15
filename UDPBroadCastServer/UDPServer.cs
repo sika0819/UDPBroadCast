@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System;
+
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace UDPBroadCastServer
 {
@@ -21,6 +19,7 @@ namespace UDPBroadCastServer
             byte[] byteMsg = Encoding.Default.GetBytes(msg);
             UDPsend.Send(byteMsg, byteMsg.Length, endpoint);
             Console.WriteLine("发送"+msg);
+            UDPsend.Close();
         }
         
     }

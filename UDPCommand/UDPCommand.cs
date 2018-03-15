@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 
 namespace GlobalValues
 {
@@ -17,4 +13,8 @@ namespace GlobalValues
     public static class ExeName {
         public const string VRCLASSROOM = "VRSteam教室";
     }
+    public static class FilePath {
+        
+    }
+    
 }

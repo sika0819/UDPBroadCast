@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GlobalSetting.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="安装路径" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="VRSteam教室" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VRSteam教室\VRSteam教室</Value>
+    </Setting>
+    <Setting Name="串联电路" Type="System.String" Scope="User">
+      <Value Profile="(Default)">串联电路\串联电路</Value>
+    </Setting>
+    <Setting Name="单摆" Type="System.String" Scope="User">
+      <Value Profile="(Default)">单摆\单摆</Value>
+    </Setting>
+    <Setting Name="弹力" Type="System.String" Scope="User">
+      <Value Profile="(Default)">弹力\弹力</Value>
+    </Setting>
+    <Setting Name="电磁" Type="System.String" Scope="User">
+      <Value Profile="(Default)">电磁\电磁</Value>
+    </Setting>
+    <Setting Name="浮力" Type="System.String" Scope="User">
+      <Value Profile="(Default)">浮力\浮力</Value>
+    </Setting>
+    <Setting Name="光合呼吸作用" Type="System.String" Scope="User">
+      <Value Profile="(Default)">光合 呼吸作用\光合和呼吸作用</Value>
+    </Setting>
+    <Setting Name="滑轮组" Type="System.String" Scope="User">
+      <Value Profile="(Default)">滑轮组\滑轮组</Value>
+    </Setting>
+    <Setting Name="化学分子式" Type="System.String" Scope="User">
+      <Value Profile="(Default)">化学分子式\化学分子式</Value>
+    </Setting>
+    <Setting Name="摩擦力" Type="System.String" Scope="User">
+      <Value Profile="(Default)">摩擦力\摩擦力</Value>
+    </Setting>
+    <Setting Name="人体解剖" Type="System.String" Scope="User">
+      <Value Profile="(Default)">人体解剖\人体解剖</Value>
+    </Setting>
+    <Setting Name="拆车" Type="System.String" Scope="User">
+      <Value Profile="(Default)">拆车\拆车</Value>
+    </Setting>
+    <Setting Name="磁生电" Type="System.String" Scope="User">
+      <Value Profile="(Default)">磁生电\磁生电</Value>
+    </Setting>
+    <Setting Name="汉语乐园" Type="System.String" Scope="User">
+      <Value Profile="(Default)">汉语乐园\汉语乐园</Value>
+    </Setting>
+    <Setting Name="水果忍者" Type="System.String" Scope="User">
+      <Value Profile="(Default)">水果忍者\水果忍者</Value>
+    </Setting>
+    <Setting Name="太阳系" Type="System.String" Scope="User">
+      <Value Profile="(Default)">太阳系\太阳系</Value>
+    </Setting>
+    <Setting Name="正常眼" Type="System.String" Scope="User">
+      <Value Profile="(Default)">眼球实验实物识别\正常人眼\正常人眼</Value>
+    </Setting>
+    <Setting Name="近视眼" Type="System.String" Scope="User">
+      <Value Profile="(Default)">眼球实验实物识别\近视眼\近视眼</Value>
+    </Setting>
+    <Setting Name="远视眼" Type="System.String" Scope="User">
+      <Value Profile="(Default)">眼球实验实物识别\远视眼\近视眼</Value>
+    </Setting>
+    <Setting Name="折射实验" Type="System.String" Scope="User">
+      <Value Profile="(Default)">折射实验\折射物理实验</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
