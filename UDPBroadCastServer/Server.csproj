@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -119,9 +119,9 @@
     <Content Include="screencaster32.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlobalSetting\GlobalSetting.csproj">
-      <Project>{cd0867f4-c5a5-4702-896c-8a53d1b38592}</Project>
-      <Name>GlobalSetting</Name>
+    <ProjectReference Include="..\UDPCommand\GlobalValues.csproj">
+      <Project>{13059492-e9fd-46f4-9817-5c3e1e0979ca}</Project>
+      <Name>GlobalValues</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

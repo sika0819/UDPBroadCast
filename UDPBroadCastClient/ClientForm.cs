@@ -11,80 +11,45 @@ namespace UDPBroadCastClient
 {
     public partial class ClientForm : Form
     {
-
-        private UdpClient udpClient;
-        private Thread UdpThread;
         Process p;
-        delegate void OnReceivedMsg(string msg);
-        OnReceivedMsg ReceiveDelegate;
+       public  UDPReceiver Receiver = new UDPReceiver(8080);
+        Process showScreen;
         public ClientForm()
         {
-            InitializeComponent();  
+            InitializeComponent();
+         
         }
 
-        public void StartReceiver()
+        private void OnReceiveMsg(object sender, UdpRecieverEventArgs udpReceiveEvent)
         {
-            if (udpClient != null)
+            Console.WriteLine(udpReceiveEvent.Command);
+            switch (udpReceiveEvent.Command)
             {
-                UdpThread.Abort();
-                Thread.Sleep(TimeSpan.FromMilliseconds(500d));
-                udpClient.Close();
-            }
-            try
-            {
-                udpClient = new UdpClient(new IPEndPoint(IPAddress.Any, 8080));
-                UdpThread = new Thread(new ThreadStart(RecvThread));
-                UdpThread.Start();
-                //buttonStartServer.Enabled = false;
-            }
-            catch (Exception y)
-            {
-                MessageBox.Show(this, y.Message, "Error", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-            }
-        }
-        void RecvThread()
-        {
-            IPEndPoint remoteHost = null;
-           
-            //listBox1.Items.Add("启动...");
-            while (udpClient != null && Thread.CurrentThread.ThreadState == System.Threading.ThreadState.Running)
-            {
-                try
-                {
-                    byte[] buf = udpClient.Receive(ref remoteHost);
-                    string bufs = Encoding.UTF8.GetString(buf);
-                    this.BeginInvoke(ReceiveDelegate, bufs);
-                }
-                catch (Exception y)
-                {
-                    throw y;
-                }
-            }
-            this.Invoke(ReceiveDelegate, "结束...");
-        }
-        public void OnReceiveMsg(string message)
-        {
-            switch (message) {
-                case GlobalSetting.UDPCommand.FORM_CLOSE:
+                case GlobalValues.UDPCommand.FORM_CLOSE:
                     Application.Exit();
                     return;
-                case GlobalSetting.UDPCommand.FORM_HIDE:
+                case GlobalValues.UDPCommand.FORM_HIDE:
                     Hide();
                     return;
-                case GlobalSetting.UDPCommand.OPEN_VRCLASSROOM:
-                    OpenExe(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\" +GlobalSetting.ExeName.VRCLASSROOM);
+                case GlobalValues.UDPCommand.OPEN_VRCLASSROOM:
+                    OpenExe(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + GlobalValues.ExeName.VRCLASSROOM);
+                    return;
+                case GlobalValues.UDPCommand.SCREENCAST_OPEN:
+                    OpenShower();
+                    return;
+                case GlobalValues.UDPCommand.SCREENCAST_CLOSE:
+                    CloseShower();
                     return;
                 default:
                     break;
             }
-            saveteacherNote.Items.Add(message);
+            saveteacherNote.Items.Add(udpReceiveEvent.Command);
         }
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
-            StartReceiver();
-            ReceiveDelegate = new OnReceivedMsg(OnReceiveMsg);
+           
+            Receiver.OnReceiveHandler += OnReceiveMsg;
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -126,7 +91,27 @@ namespace UDPBroadCastClient
                 fs.Close();
             }
         }
-        
+        public void OpenShower() {
+            if (showScreen == null)
+            {
+                showScreen = new Process();
+                showScreen.StartInfo.FileName = "client.exe";
+                showScreen.Start();
+            }
+            else
+            {
+                if (showScreen.HasExited) //是否正在运行
+                {
+                    showScreen.Close();
+                }
+            }
+        }
+        public void CloseShower() {
+            if (showScreen!=null) //是否正在运行
+            {
+                showScreen.Kill();
+            }
+        }
         public void OpenExe(string dir) {
             Console.WriteLine(dir);
             
@@ -145,6 +130,23 @@ namespace UDPBroadCastClient
             }
             p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Maximized;
         }
-    
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.ApplicationExitCall:
+                    
+                    e.Cancel = false;
+                    break;
+                default:
+                    notifyIcon1.ShowBalloonTip(1000, "学生端最小化", "最小化，请使用右下角系统通知区域菜单唤醒或退出程序", ToolTipIcon.Info);
+                    this.ShowInTaskbar = false;
+                    this.Hide();
+                    e.Cancel = true;
+                    break;
+            }
+
+        }
+        
     }
 }

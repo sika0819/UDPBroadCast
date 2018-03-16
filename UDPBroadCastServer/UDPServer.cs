@@ -9,8 +9,14 @@ namespace UDPBroadCastServer
 {
     public class UDPServer
     {
-        public UdpClient UDPsend = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
-        IPEndPoint endpoint = new IPEndPoint(IPAddress.Broadcast, 8080);
+        public UdpClient UDPsend;
+        IPEndPoint endpoint;
+        public UDPServer(int remotePort) {
+            UDPsend = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
+            endpoint = new IPEndPoint(IPAddress.Broadcast, remotePort);
+        }
+        
+        
         //其实 IPAddress.Broadcast 就是 255.255.255.255
         //下面代码与上面有相同的作用
         //IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse("255.255.255.255"), 8080);

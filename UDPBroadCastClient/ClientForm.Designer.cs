@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
@@ -149,14 +149,6 @@ namespace UDPBroadCastClient
             this.ResumeLayout(false);
 
         }
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            notifyIcon1.ShowBalloonTip(1000, "学生端最小化", "最小化，请使用右下角系统通知区域菜单唤醒或退出程序", ToolTipIcon.Info);
-            this.ShowInTaskbar = false;
-            this.Hide();
-            e.Cancel = true;
-        }
-       
 
         private GroupBox nptegroupbox;
         private ListBox saveteacherNote;

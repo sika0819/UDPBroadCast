@@ -56,5 +56,11 @@ namespace screen_cast
                 }
             }
         }
+        public void Send(string msg) {
+            byte[] byteMsg = Encoding.Default.GetBytes(msg);
+            UdpHandler.Send(byteMsg, byteMsg.Length, RemoteIp);
+            Console.WriteLine("发送" + msg);
+            UdpHandler.Close();
+        }
     }
 }

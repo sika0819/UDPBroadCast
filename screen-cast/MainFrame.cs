@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+<<<<<<< HEAD
 using UDPBroadCastServer;
+=======
+>>>>>>> 66174dc4c668a796f76ede84813d6f8dfcc6e75e
 using GlobalValues;
 
 namespace screen_cast
@@ -18,7 +21,11 @@ namespace screen_cast
         private ScreenCapture _ObjCapture = new ScreenCapture();
         private UdpHelper _ObjUdp = new UdpHelper("255.255.255.255",12580);
         private Boolean _bRunning = false;
+<<<<<<< HEAD
         UDPServer server;
+=======
+        UdpHelper server = new UDPServer("255.255.255.255", 8080);
+>>>>>>> 66174dc4c668a796f76ede84813d6f8dfcc6e75e
         public MainFrame()
         {
             InitializeComponent();
@@ -48,14 +55,19 @@ namespace screen_cast
                 this.btn_start.Text = "Stop";
 
                 this.WindowState = FormWindowState.Minimized;
+                server.Send(UDPCommand.SCREENCAST_OPEN);
             }
             else
             {
                 this._ObjCapture.StopCapture();
                 this._bRunning = false;
                 this.btn_start.Text = "Start";
+<<<<<<< HEAD
                 server = new UDPServer();
                 server.SendMessage(UDPCommand.SCREENCAST_CLOSE);
+=======
+                server.Send(UDPCommand.SCREENCAST_CLOSE);
+>>>>>>> 66174dc4c668a796f76ede84813d6f8dfcc6e75e
             }
         }
         private void OnScreenData(Object obj,ScreenCaptureEventArgs evt)

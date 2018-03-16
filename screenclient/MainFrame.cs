@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using System.IO;
+using System.ComponentModel;
 
 namespace client
 {
@@ -18,7 +19,9 @@ namespace client
 
             _ObjPicCollector.OnCollectorEventHandler += new EventHandler<PacketHelper.PacketCollectorEventArgs>(this.OnCollectorEvent);
             _ObjUdpReciever.OnUdpRecieverEventHandler += new EventHandler<UdpRecieverEventArgs>(this.OnUdpRecieverEvent);
+        
         }
+
 
         private void OnCollectorEvent(Object obj, PacketHelper.PacketCollectorEventArgs evt)
         {
@@ -40,17 +43,11 @@ namespace client
             _ObjPicCollector.Collect(evt.data);
 
         }
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            switch (e.CloseReason) {
-                case CloseReason.ApplicationExitCall:
-                    e.Cancel = false;
-                    break;
-                default:
-                    e.Cancel = true;
-                    break;
-            }
-            
+            e.Cancel = true;
+            base.OnClosing(e);
         }
+       
     }
 }

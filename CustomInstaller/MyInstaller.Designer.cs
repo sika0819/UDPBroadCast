@@ -1,4 +1,6 @@
-﻿namespace CustomInstaller
+using System.Collections;
+
+namespace CustomInstaller
 {
     partial class MyInstaller
     {
@@ -30,7 +32,11 @@
         {
             components = new System.ComponentModel.Container();
         }
+        protected override void OnAfterInstall(IDictionary savedState)
+        {
+            base.OnAfterInstall(savedState);
 
+        }
         #endregion
     }
 }

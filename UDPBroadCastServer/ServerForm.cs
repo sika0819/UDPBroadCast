@@ -1,3 +1,4 @@
+using GlobalValues;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ namespace UDPBroadCastServer
         public ServerForm()
         {
             InitializeComponent();
-            server = new UDPServer();
+            server = new UDPServer(8080);
      
         }
 
@@ -24,8 +25,8 @@ namespace UDPBroadCastServer
 
         private void openClassRoom_Click(object sender, EventArgs e)
         {
-            server.SendMessage(GlobalSetting.UDPCommand.OPEN_VRCLASSROOM);
-            OpenExe(GlobalSetting.ExeName.VRCLASSROOM);
+            server.SendMessage(UDPCommand.OPEN_VRCLASSROOM);
+            OpenExe(ExeName.VRCLASSROOM);
         }
 
      
@@ -67,6 +68,7 @@ namespace UDPBroadCastServer
                 startScreenCast.StartInfo.CreateNoWindow = true;
                 startScreenCast.Start();
             }
+           
         }
 
         private void endBroadcastBtn_Click(object sender, EventArgs e)
@@ -75,6 +77,7 @@ namespace UDPBroadCastServer
             {
                 startScreenCast.Close();
             }
+            server.SendMessage(UDPCommand.SCREENCAST_CLOSE);
         }
     }
 }
