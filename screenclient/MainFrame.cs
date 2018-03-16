@@ -38,9 +38,6 @@ namespace client
 
         private void OnUdpRecieverEvent(Object obj,UdpRecieverEventArgs evt)
         {
-            if (evt.data.ToString() == UDPCommand.SCREENCAST_CLOSE) {
-                Application.Exit();
-            }
             _ObjPicCollector.Collect(evt.data);
 
         }
