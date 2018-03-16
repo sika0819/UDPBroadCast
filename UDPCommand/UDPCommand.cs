@@ -15,8 +15,5 @@ namespace GlobalValues
     public static class ExeName {
         public const string VRCLASSROOM = "VRSteam教室";
     }
-    public static class FilePath {
-        
-    }
-    
+
 }

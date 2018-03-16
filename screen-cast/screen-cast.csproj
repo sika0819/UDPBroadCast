@@ -88,10 +88,6 @@
       <Project>{402b15e7-92b3-4aa3-b603-3dee88cfd26c}</Project>
       <Name>Server</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UDPCommand\GlobalValues.csproj">
-      <Project>{13059492-e9fd-46f4-9817-5c3e1e0979ca}</Project>
-      <Name>GlobalValues</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

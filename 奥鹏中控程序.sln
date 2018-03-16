@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "UDPBroadCastServe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalValues", "UDPCommand\GlobalValues.csproj", "{13059492-E9FD-46F4-9817-5C3E1E0979CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "screen-cast", "screen-cast\screen-cast.csproj", "{19CAA291-0A31-4477-A902-AC89FB49BF1A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenClient", "screenclient\ScreenClient.csproj", "{00938125-8D9A-445B-A420-2E9D638D37CC}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "客户端安装", "SetUp\SetUp.vdproj", "{1E53EF17-5688-4A3A-BFB1-790AEB10EA45}"
@@ -35,10 +33,6 @@ Global
 		{13059492-E9FD-46F4-9817-5C3E1E0979CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13059492-E9FD-46F4-9817-5C3E1E0979CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13059492-E9FD-46F4-9817-5C3E1E0979CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19CAA291-0A31-4477-A902-AC89FB49BF1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19CAA291-0A31-4477-A902-AC89FB49BF1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19CAA291-0A31-4477-A902-AC89FB49BF1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19CAA291-0A31-4477-A902-AC89FB49BF1A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{00938125-8D9A-445B-A420-2E9D638D37CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{00938125-8D9A-445B-A420-2E9D638D37CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00938125-8D9A-445B-A420-2E9D638D37CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
