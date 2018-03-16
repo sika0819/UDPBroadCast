@@ -3,13 +3,14 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using System.IO;
+using GlobalValues;
 
 namespace client
 {
     public partial class MainFrame : Form
     {
         private PacketHelper.PacketCollector _ObjPicCollector = new PacketHelper.PacketCollector();
-        private UdpReciever _ObjUdpReciever = new UdpReciever(12345);
+        private UdpReciever _ObjUdpReciever = new UdpReciever(12580);
         public MainFrame()
         {
             InitializeComponent();
@@ -37,8 +38,23 @@ namespace client
 
         private void OnUdpRecieverEvent(Object obj,UdpRecieverEventArgs evt)
         {
+            if (evt.data.ToString() == UDPCommand.SCREENCAST_CLOSE) {
+                Application.Exit();
+            }
             _ObjPicCollector.Collect(evt.data);
 
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            switch (e.CloseReason) {
+                case CloseReason.ApplicationExitCall:
+                    e.Cancel = false;
+                    break;
+                default:
+                    e.Cancel = true;
+                    break;
+            }
+            
         }
     }
 }
