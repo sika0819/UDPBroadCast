@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using GlobalValues;
 
 namespace screen_cast
 {
@@ -16,7 +17,7 @@ namespace screen_cast
         private ScreenCapture _ObjCapture = new ScreenCapture();
         private UdpHelper _ObjUdp = new UdpHelper("255.255.255.255",12580);
         private Boolean _bRunning = false;
-
+        UdpHelper server = new UDPServer("255.255.255.255", 8080);
         public MainFrame()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace screen_cast
                 this.btn_start.Text = "Stop";
 
                 this.WindowState = FormWindowState.Minimized;
+                server.Send(UDPCommand.SCREENCAST_OPEN);
             }
             else
             {
@@ -53,7 +55,7 @@ namespace screen_cast
 
                 this._bRunning = false;
                 this.btn_start.Text = "Start";
-
+                server.Send(UDPCommand.SCREENCAST_CLOSE);
             }
         }
         private void OnScreenData(Object obj,ScreenCaptureEventArgs evt)
