@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using UDPBroadCastServer;
+using GlobalValues;
 
 namespace screen_cast
 {
@@ -16,7 +18,7 @@ namespace screen_cast
         private ScreenCapture _ObjCapture = new ScreenCapture();
         private UdpHelper _ObjUdp = new UdpHelper("255.255.255.255",12580);
         private Boolean _bRunning = false;
-
+        UDPServer server;
         public MainFrame()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace screen_cast
             this.text_fps.Text = "20";
             this.text_quality.Text = "80";
             this._ObjCapture.OnScreenDataEventHandler += new EventHandler<ScreenCaptureEventArgs>(this.OnScreenData);
-          
+            
         }
 
   
@@ -50,10 +52,10 @@ namespace screen_cast
             else
             {
                 this._ObjCapture.StopCapture();
-
                 this._bRunning = false;
                 this.btn_start.Text = "Start";
-
+                server = new UDPServer();
+                server.SendMessage(UDPCommand.SCREENCAST_CLOSE);
             }
         }
         private void OnScreenData(Object obj,ScreenCaptureEventArgs evt)

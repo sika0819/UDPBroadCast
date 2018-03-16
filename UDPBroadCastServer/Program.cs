@@ -5,6 +5,7 @@ namespace UDPBroadCastServer
 {
     static class Program
     {
+        public static ServerForm serverForm;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -13,7 +14,8 @@ namespace UDPBroadCastServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ServerForm());
+            serverForm = new ServerForm();
+            Application.Run(serverForm);
         }
     }
 }
