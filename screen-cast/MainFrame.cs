@@ -44,7 +44,8 @@ namespace screen_cast
 
                 this._bRunning = true;
                 this.btn_start.Text = "Stop";
-                //this.WindowState = FormWindowState.Minimized;
+
+                this.WindowState = FormWindowState.Minimized;
             }
             else
             {

@@ -262,3 +262,7 @@ __pycache__/
 *.sln
 奥鹏中控程序.sln
 *.sln
+screen-cast/MainFrame.cs
+screen-cast/MainFrame.cs
+*.csproj
+*.csproj

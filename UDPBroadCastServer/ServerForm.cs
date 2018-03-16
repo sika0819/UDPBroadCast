@@ -55,7 +55,8 @@ namespace UDPBroadCastServer
             if (startScreenCast == null)
             {
                 startScreenCast = new Process();
-                startScreenCast.StartInfo.FileName = Application.StartupPath + "\\screen - cast.exe";
+                startScreenCast.StartInfo.FileName = Application.StartupPath + "\\screen-cast.exe";
+                Console.WriteLine(startScreenCast.StartInfo.FileName);
                 startScreenCast.StartInfo.Arguments = "";
                 startScreenCast.StartInfo.WorkingDirectory = "";
                 startScreenCast.StartInfo.UseShellExecute = false;
