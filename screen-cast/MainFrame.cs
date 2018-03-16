@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using System.IO;
-using GlobalValues;
 
 namespace screen_cast
 {
@@ -26,16 +24,10 @@ namespace screen_cast
             this.text_fps.Text = "20";
             this.text_quality.Text = "80";
             this._ObjCapture.OnScreenDataEventHandler += new EventHandler<ScreenCaptureEventArgs>(this.OnScreenData);
-            this._ObjCapture.OnScreenDataEventHandler += new EventHandler<ScreenCaptureEventArgs>(this.OnContrl);
-            //this.picture_screen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+          
         }
 
-        private void OnContrl(object sender, ScreenCaptureEventArgs e)
-        {
-            e.data = Encoding.Default.GetBytes(UDPCommand.SCREENCAST_CLOSE);
-            _ObjUdp.Send(e.data);
-        }
-
+  
         private void btn_start_Click(object sender, EventArgs e)
         {
 
